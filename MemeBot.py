@@ -774,7 +774,7 @@ def sender(update: Update, context: CallbackContext):
         for i in range(len(user_df)):
             df2=user_df.iloc[i]
             try:
-                bot.send_photo(chat_id=int(df2.chatID), photo=open("pp.jpg"), caption="I am bigger and better than ever before with added filter flairs of your choice \nNow enjoy memes from all over the internet sorted by your flavour \n\nHit me with /help to see the latest updates", reply_markup = reply_markup)
+                bot.send_photo(chat_id=int(df2.chatID), photo="https://i.kym-cdn.com/entries/icons/mobile/000/034/408/Punching_Pepe_Banner.jpg", caption="I am bigger and better than ever before with added filter flairs of your choice \nNow enjoy memes from all over the internet sorted by your flavour \n\nHit me with /help to see the latest updates", reply_markup = reply_markup)
                 count+=1
                 print(count)
             except:
