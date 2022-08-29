@@ -52,7 +52,7 @@ ad_msg1_count=0
 ad_msg2_count=0
 
 user_list={}
-
+user_df=pd.read_csv('users.csv', encoding = "ISO-8859-1")
 
 ############################################### VARS ###############################################
 
@@ -492,8 +492,6 @@ def meme_get(update: Update, context: CallbackContext):
         reply="You are blocked by Administrators. Reason: '"+blocked_user[str(user['id'])].capitalize()+"'"
         update.message.reply_text(reply)
     else:
-        update.message.reply_text(
-            "Loading Image please wait...")
         try:
             photos=meme(genre=genre)
         except:
@@ -567,8 +565,6 @@ def vmeme_get(update: Update, context: CallbackContext):
         reply="You are blocked by Administrators. Reason: '"+blocked_user[str(user['id'])].capitalize()+"'"
         update.message.reply_text(reply)
     else:
-        update.message.reply_text(
-            "Loading Video/GIF please wait...")
         try:
             videos=vmeme()
         except:
@@ -648,8 +644,6 @@ def joke_get(update: Update, context: CallbackContext):
         reply="You are blocked by Administrators. Reason: '"+blocked_user[str(user['id'])].capitalize()+"'"
         update.message.reply_text(reply)
     else:
-        update.message.reply_text(
-            "Loading Joke please wait...")
         try:
             joke=jokes()
         except:
@@ -767,6 +761,27 @@ def policy_msg(update: Update, context: CallbackContext):
 def teller(update: Update, context: CallbackContext):
     global user_dict
     bot.send_message(chat_id=1010298479, text=str(user_dict))
+
+def sender(update: Update, context: CallbackContext):
+    global user_df
+    global ad_msg1
+    count=0
+    passw=get_text(context)
+    keyboard=[[InlineKeyboardButton("Help", url="https://t.me/MemeGetterBot"),
+                       InlineKeyboardButton("Meme", url="https://t.me/MemeGetterBot"),]]
+    reply_markup=InlineKeyboardMarkup(keyboard)
+    if passw=='tanmayGOD':
+        for i in range(len(user_df)):
+            df2=user_df.iloc[i]
+            try:
+                bot.send_photo(chat_id=int(df2.chatID), photo=open("pp.jpg"), caption="I am bigger and better than ever before with added filter flairs of your choice \nNow enjoy memes from all over the internet sorted by your flavour \n\nHit me with /help to see the latest updates", reply_markup = reply_markup)
+                count+=1
+                print(count)
+            except:
+                continue
+        print('done')
+    else:
+        bot.send_message(chat_id=int(df2.chatID), text="fuck off")
 
 def queryHandler(update: Update, context: CallbackContext):
     global user_list
