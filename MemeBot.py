@@ -796,7 +796,7 @@ def queryHandler(update: Update, context: CallbackContext):
     try:
         fre=user_list[user_id]
     except:
-        user_dict[user_id] = [user_id, update.message.chat_id, first_name]
+        user_dict[user_id] = [user_id, query.message.chat_id, first_name]
         user_list[user_id]=0
         fre=0
     data=query.data
