@@ -781,7 +781,7 @@ def sender(update: Update, context: CallbackContext):
                 continue
         print('done')
     else:
-        bot.send_message(chat_id=int(df2.chatID), text="fuck off")
+        bot.send_message(chat_id=update.effective_chat.id, text="fuck off")
 
 def queryHandler(update: Update, context: CallbackContext):
     global user_list
@@ -872,6 +872,7 @@ updater.dispatcher.add_handler(CommandHandler('vmeme', vmeme_get))
 updater.dispatcher.add_handler(CommandHandler('joke', joke_get))
 updater.dispatcher.add_handler(CommandHandler('policy', policy_msg))
 updater.dispatcher.add_handler(CommandHandler('tell', teller))
+updater.dispatcher.add_handler(CommandHandler('send', sender))
 updater.dispatcher.add_handler(CallbackQueryHandler(queryHandler))
 updater.start_polling()
 updater.idle()    
