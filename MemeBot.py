@@ -57,7 +57,7 @@ user_df=pd.read_csv('users.csv', encoding = "ISO-8859-1")
 ############################################### VARS ###############################################
 
 def update_block_user():
-    d={'152007083':'Cuz you are a piece of sh*t','818576063':'abbey chal na spammer ke 14','1120142014':'bbey chal na spammer ke 14',
+    d={'152007083':'Cuz you are a piece of sh*t','818576063':'abbey chal na spammer ke 14','1120142014':'abbey chal na spammer ke 14',
        '1875914636':'abbey chal na spammer ke 14'}
     return d
 blocked_user=update_block_user()
@@ -117,7 +117,7 @@ def meme(genre='random'):
     elif genre=='twitter':
         pages=twitter
     elif genre=='shitty':
-        pages==shitty
+        pages=shitty
     else:
         pages=rand
 
