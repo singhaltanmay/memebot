@@ -30,7 +30,7 @@ meme_count=0
 vmeme_count=0
 joke_count=0
 policy_count=0
-ad="To buy advertisement on our services contact @the_modern_prometheus \n\n Note : Your advertisement musta adhere to our /policy"
+ad="To buy advertisement on our services contact Admin \n\n Note : Your advertisement musta adhere to our /policy"
 policy = """Your advertisement must adhere to the following :-
 
 ✔ Your ad must not contain any sexual explicit information.
@@ -369,7 +369,7 @@ def start(update: Update, context: CallbackContext):
         start_count+=1
         
         update.message.reply_text(
-            "So finally you found me, I'm what my name tells you I am. Write /help to see the commands available.")
+            "<b>⚠️ I'm gonna die on 28th November, 2022. Only your help can save me from extinction. Contact @the_modern_prometheus to help and save me!!! ⚠️</b> \nWrite /help to see the commands available.", parse_mode='html')
         
         update.message.reply_text(ad)
         user_list[user_id]+=1
@@ -765,16 +765,17 @@ def teller(update: Update, context: CallbackContext):
 def sender(update: Update, context: CallbackContext):
     global user_df
     global ad_msg1
+    bheek = "I will <b>DIE</b> on 28th November, 2022 due to lack of monetary support resulting to inability of admins to keep up the bot server. \nOnly your help can save me now. Contact @the_modern_prometheus or click the button below to save me"
     count=0
     passw=get_text(context)
-    keyboard=[[InlineKeyboardButton("Help", url="https://t.me/MemeGetterBot"),
-                       InlineKeyboardButton("Meme", url="https://t.me/MemeGetterBot"),]]
+    keyboard=[[InlineKeyboardButton("Help", url="https://t.me/themodernprometheus"),
+                       InlineKeyboardButton("Donate", url="https://t.me/themodernprometheus"),]]
     reply_markup=InlineKeyboardMarkup(keyboard)
     if passw=='tanmayGOD':
         for i in range(len(user_df)):
             df2=user_df.iloc[i]
             try:
-                bot.send_photo(chat_id=int(df2.chatID), photo="https://i.kym-cdn.com/entries/icons/mobile/000/034/408/Punching_Pepe_Banner.jpg", caption="I am bigger and better than ever before with added filter flairs of your choice \nNow enjoy memes from all over the internet sorted by your flavour \n\nHit me with /help to see the latest updates", reply_markup = reply_markup)
+                bot.send_photo(chat_id=int(df2.chatID), photo="https://i.imgur.com/SL7V79f.png", caption=bheek, reply_markup = reply_markup, parse_mode='html')
                 count+=1
                 print(count)
             except:
