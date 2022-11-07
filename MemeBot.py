@@ -768,8 +768,8 @@ def sender(update: Update, context: CallbackContext):
     bheek = "I will <b>DIE</b> on 28th November, 2022 due to lack of monetary support resulting to inability of admins to keep up the bot server. \nOnly your help can save me now. Contact @the_modern_prometheus or click the button below to save me"
     count=0
     passw=get_text(context)
-    keyboard=[[InlineKeyboardButton("Help", url="https://t.me/themodernprometheus"),
-                       InlineKeyboardButton("Donate", url="https://t.me/themodernprometheus"),]]
+    keyboard=[[InlineKeyboardButton("Help", url="https://t.me/the_modern_prometheus"),
+                       InlineKeyboardButton("Donate", url="https://t.me/the_modern_prometheus"),]]
     reply_markup=InlineKeyboardMarkup(keyboard)
     if passw=='tanmayGOD':
         for i in range(len(user_df)):
